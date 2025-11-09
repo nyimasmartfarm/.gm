@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lamin's Orchard & Vegetable Farm</title>
+  <meta name="description" content="Fresh fruits and vegetables from Jarra Darsilameh Village — Lamin N. Sanneh's orchard and vegetable farm">
+  <style>
+    :root {
+      --green-dark: #2f855a;
+      --green: #48bb78;
+      --gold: #d4af37;
+      --silver: #c0c0c0;
+      --diamond: #e4f1fe;
+      --light-green: #c5f6c7;
+      --text-dark: #1e293b;
+      --text-light: #64748b;
+      --card: #ffffffd9;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(
+        135deg,
+        var(--gold) 0%,
+        var(--silver) 25%,
+        var(--diamond) 60%,
+        var(--light-green) 100%
+      );
+      background-attachment: fixed;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: linear-gradient(90deg, var(--gold), var(--silver), var(--light-green));
+      color: #1a1a1a;
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      z-index: 50;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+      background: radial-gradient(circle at top left, var(--gold), var(--green-dark));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 22px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1a1a1a;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: all 0.3s;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .cta {
+      background: linear-gradient(135deg, var(--gold), var(--green-dark));
+      color: white;
+      padding: 10px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta:hover {
+      background: linear-gradient(135deg, var(--green-dark), var(--gold));
+      transform: scale(1.05);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 30px;
+      align-items: center;
+      padding: 60px 0;
+    }
+
+    .hero-card {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+    }
+
+    p.lead {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      color: var(--green-dark);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-4px);
+    }
+
+    .product img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+
+    .product h4 {
+      margin: 10px 16px 4px;
+      font-size: 1.1rem;
+    }
+
+    .product p {
+      margin: 0 16px 16px;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .tag {
+      background: rgba(72, 187, 120, 0.1);
+      color: var(--green-dark);
+      border-radius: 20px;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      margin-left: 6px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 224px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.07);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 20px;
+      align-items: start;
+      margin-top: 30px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      font-size: 14px;
+    }
+
+    button.primary {
+      background: linear-gradient(135deg, var(--gold), var(--green-dark));
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    button.primary:hover {
+      background: linear-gradient(135deg, var(--green-dark), var(--gold));
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 20px 0;
+      background: linear-gradient(90deg, var(--gold), var(--silver), var(--light-green));
+      color: #1a1a1a;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">LS</div>
+        <div>
+          <div style="font-weight:800">Lamin's Orchard</div>
+          <div style="font-size:12px;color:var(--text-light)">Jarra Darsilameh Village</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="cta" href="#contact">Order Now</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="hero">
+      <div class="hero-card">
+        <h1>Fresh Fruits & Vegetables from <span style="color:var(--green-dark)">Jarra Darsilameh</span></h1>
+        <p class="lead">Hi — I’m Lamin N. Sanneh. We grow seasonal fruits and vegetables with care and sustainable practices. From our orchard to your table — naturally fresh and healthy.</p>
+        <div class="actions">
+          <a href="#products" class="cta">See Products</a>
+          <a href="#about" style="padding:10px 14px;border:1px solid #cbd5e1;border-radius:10px;font-weight:700;text-decoration:none;">Our Story</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About Lamin</h2>
+      <p class="lead">I’m <strong>Lamin N. Sanneh</strong> from Jarra Darsilameh Village. Our farm is dedicated to orchard and vegetable production, focusing on sustainability, community collaboration, and delivering fresh produce directly to our customers.</p>
+    </section>
+     </div>
+
+    <video width="390" height="460" controls autoplay muted>
+  <source src="https://github.com/kebbehssmartfarm-rgb/.co/blob/main/VID-20251019-WA0005.mp4?raw=true" type="video/mp4">
+  Your browser does not support the video tag.
+    </video>
+<video controls style="max-width:100%;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.4);">
+  <source src="https://raw.githubusercontent.com/kebbehssmartfarm-rgb/.co/main/hb_1760820161250VID-20241021-WA0028.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+  
+ </div>
+
+    <section id="products">
+      <h2>Our Products</h2>
+      <div class="products-grid">
+        <div class="product">
+          <img src="https://raw.githubusercontent.com/lsdorchardandvegetablesgarden/.coo/main/IMG_20250808_125514_315.jpg" alt="Okra">
+          <h4>Okra <span class="tag">Fruit</span></h4>
+          <p>Freshly harvested okra — rich in nutrients and flavor.</p>
+        </div>
+
+        <div class="product">
+          <img src="https://raw.githubusercontent.com/lsdorchardandvegetablesgarden/.coo/main/IMG_20231011_185851_327.jpg" alt="Cassava">
+          <h4>Cassava <span class="tag">Root Crop</span></h4>
+          <p>Healthy, newly harvested cassava for your meals.</p>
+        </div>
+
+        <div class="product">
+          <img src="https://raw.githubusercontent.com/lsdorchardandvegetablesgarden/.coo/main/IMG_20241207_181344_456.jpg" alt="Onion Seedlings">
+          <h4>Onion Seedlings <span class="tag">Plant</span></h4>
+          <p>Vibrant onion seedlings ready for transplanting.</p>
+        </div>
+
+        <div class="product">
+      <p align="center">
+  <img src="https://raw.githubusercontent.com/lsdorchardandvegetablesgarden/.coo/main/IMG-20251102-WA0083.jpg" alt="Garden photo" width="600" />
+</p>
+          <h4>Tomatoes <span class="tag">Vegetable</span></h4>
+          <p>Juicy, red tomatoes — grown naturally with care.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+    <img src="https://raw.githubusercontent.com/lsdorchardandvegetablesgarden/.coo/main/IMG_20250720_075746_986.jpg" 
+     alt="LSD Orchard and Vegetables Garden" 
+     style="max-width:100%; height:auto; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15); display:block; margin:auto;">
+        <h4>Okra <span class="tag">Fruit</span></h4>
+    <img src="https://raw.githubusercontent.com/lsdorchardandvegetablesgarden/.coo/main/IMG_20231011_185234_630.jpg" 
+     alt="LSD Orchard and Vegetables Garden" 
+     style="max-width:100%; height:auto; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15); display:block; margin:auto;">
+        <h4>Cassava <span class="tag">Root Crop</span></h4>
+   <img src="https://raw.githubusercontent.com/lsdorchardandvegetablesgarden/.coo/main/your_image_name.jpg" 
+     alt="LSD Orchard and Vegetables Garden" 
+     style="max-width:100%; height:auto; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15); display:block; margin:auto;">
+   <img src="https://raw.githubusercontent.com/lsdorchardandvegetablesgarden/.coo/main/IMG_20240625_074139_563.jpg" 
+     alt="LSD Orchard and Vegetables Garden" 
+     style="max-width:100%; height:auto; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15); display:block; margin:auto;">
+      <h4>Okra <span class="tag">Fruit</span></h4>
+       <img src="https://placehold.co/300x200?text=Image+7" alt="Gallery 7">
+      <h4>Groundnut <span class="tag">groundnut</span></h4>
+![Garden photo](https://raw.githubusercontent.com/lsdorchardandvegetablesgarden/.coo/main/IMG_20230812_162413_865.jpg)      
+        <img src="https://placehold.co/300x200?text=Image+8" alt="Gallery 8">
+   <p align="center">
+  <img src="https://raw.githubusercontent.com/lsdorchardandvegetablesgarden/.coo/main/IMG_20240613_180503_999.jpg" alt="Garden photo" width="600" />
+</p>
+        <img src="https://placehold.co/300x200?text=Image+10" alt="Gallery 10">
+        <img src="https://placehold.co/300x200?text=Image+11" alt="Gallery 11">
+        <img src="https://placehold.co/300x200?text=Image+12" alt="Gallery 12">
+        <img src="https://placehold.co/300x200?text=Image+13" alt="Gallery 13">
+        <img src="https://placehold.co/300x200?text=Image+14" alt="Gallery 14">
+        <img src="https://placehold.co/300x200?text=Image+15" alt="Gallery 15">
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact & Order</h2>
+      <div class="contact-grid">
+        <div>
+          <p>Phone / WhatsApp: <strong>+220 3917789</strong></p>
+          <p>Email: <strong>lamin@example.com</strong></p>
+        </div>
+        <div>
+          <form onsubmit="contactSubmit(event)">
+            <div class="field">
+              <label>Name</label>
+              <input id="name" required placeholder="Your name">
+            </div>
+            <div class="field">
+              <label>Phone or Email</label>
+              <input id="contactinfo" required placeholder="Phone or email">
+            </div>
+            <div class="field">
+              <label>Message / Order</label>
+              <textarea id="message" rows="5" placeholder="What would you like to order?"></textarea>
+            </div>
+            <button class="primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Lamin's Orchard • Jarra Darsilameh Village
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function contactSubmit(e){
+      e.preventDefault();
+      const name=document.getElementById('name').value;
+      const contactinfo=document.getElementById('contactinfo').value;
+      const message=document.getElementById('message').value;
+      const subject=encodeURIComponent('Order/Inquiry from '+name);
+      const body=encodeURIComponent('Contact: '+contactinfo+'\n\nMessage:\n'+message);
+      window.location.href='mailto:lamin@example.com?subject='+subject+'&body='+body;
+    }
+  </script>
+</body>
+</html>
